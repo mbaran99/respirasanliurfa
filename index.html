@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Respira Şanlıurfa Masaj Salonu - Profesyonel Spa & Masaj</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome (İkonlar için) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-dark: #0f0f0f;
+            --bg-light: #161616;
+            --card-bg: #1d1d1d;
+            --gold: #d4af37;
+            --gold-hover: #b5952f;
+            --text-main: #f5f5f5;
+            --text-muted: #aaaaaa;
+            --whatsapp: #25d366;
+            --whatsapp-hover: #1ebd5a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: rgba(15, 15, 15, 0.95);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        nav .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(15, 15, 15, 1)), url('http://googleusercontent.com/image_collection/image_retrieval/17297484329455004611_0');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .hero h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #fff;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        /* Global Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: var(--gold);
+            margin: 0 auto 3rem auto;
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            height: 250px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 15px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+        }
+
+        .service-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        .service-price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+            white-space: nowrap;
+        }
+
+        .service-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .service-detail-item {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .service-detail-item i {
+            color: var(--gold);
+            font-size: 0.95rem;
+            width: 20px;
+        }
+
+        /* Reviews Section */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .review-card {
+            background-color: var(--bg-light);
+            border-left: 4px solid var(--gold);
+            padding: 2rem;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .review-stars {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .review-text {
+            font-style: italic;
+            color: #dddddd;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .review-author {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--gold);
+        }
+
+        /* Contact & Location Section */
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 2rem;
+        }
+
+        .contact-info {
+            font-size: 1.2rem;
+        }
+
+        .contact-info a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: var(--gold);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-gold {
+            background-color: var(--gold);
+            color: #000;
+        }
+
+        .btn-gold:hover {
+            background-color: var(--gold-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            margin-top: 1rem;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--gold);
+            color: #000;
+        }
+
+        /* Floating WhatsApp Button */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--whatsapp);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            text-decoration: none;
+            z-index: 1000;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+            background-color: var(--whatsapp-hover);
+        }
+
+        footer {
+            background-color: #0a0a0a;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 900px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            .gallery-item {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            section {
+                padding: 3rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menü Alanı -->
+    <nav>
+        <a href="#" class="logo">RESPIRA</a>
+        <div class="nav-links">
+            <a href="#">Anasayfa</a>
+            <a href="#galeri">Galeri</a>
+            <a href="#hizmetler">Hizmetler</a>
+            <a href="#yorumlar">Yorumlar</a>
+            <a href="#iletisim">İletişim</a>
+        </div>
+    </nav>
+
+    <!-- Giriş (Hero) Alanı -->
+    <header class="hero">
+        <h2>Respira</h2>
+        <p>Şanlıurfa'da bedeninizi ve ruhunuzu tazeleyecek lüks, hijyenik ve profesyonel masaj deneyimi.</p>
+        <a href="https://wa.me/905367393181?text=Merhaba,%20Respira%20Şanlıurfa%20Masaj%20Salonu%20için%20randevu%20almak%20istiyorum." class="btn btn-gold" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Hemen Randevu Al
+        </a>
+    </header>
+
+    <!-- Görseller / Galeri Alanı -->
+    <section id="galeri">
+        <h3 class="section-title">Salonumuzdan Kareler</h3>
+        <p class="section-subtitle">Günün stresinden uzaklaşacağınız konforlu ve huzurlu ortamımız</p>
+        <div class="divider"></div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/17297484329455004611_1" alt="Respira Masaj Odası">
+            </div>
+            <div class="gallery-item">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/17297484329455004611_2" alt="Lüks Spa Alanı">
+            </div>
+            <div class="gallery-item">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/17297484329455004611_3" alt="Masaj Terapisi">
+            </div>
+        </div>
+    </section>
+
+    <!-- Hizmetler ve Fiyatlar -->
+    <section id="hizmetler" style="background-color: var(--bg-light);">
+        <h3 class="section-title">Hizmetlerimiz</h3>
+        <p class="section-subtitle">Sizin için en uygun masaj terapisini seçin</p>
+        <div class="divider"></div>
+
+        <div class="services-grid">
+            <!-- Hizmet 1 -->
+            <div class="service-card">
+                <div class="service-header">
+                    <span class="service-title">Klasik Masaj</span>
+                    <span class="service-price">1000 ₺</span>
+                </div>
+                <div class="service-details">
+                    <div class="service-detail-item">
+                        <i class="fa-regular fa-clock"></i> 35 Dakika
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hizmet 2 -->
+            <div class="service-card">
+                <div class="service-header">
+                    <span class="service-title">Klasik Masaj</span>
+                    <span class="service-price">1500 ₺</span>
+                </div>
+                <div class="service-details">
+                    <div class="service-detail-item">
+                        <i class="fa-regular fa-clock"></i> 45 Dakika
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hizmet 3 -->
+            <div class="service-card">
+                <div class="service-header">
+                    <span class="service-title">Soft Masaj</span>
+                    <span class="service-price">2000 ₺</span>
+                </div>
+                <div class="service-details">
+                    <div class="service-detail-item">
+                        <i class="fa-regular fa-clock"></i> 60 Dakika
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hizmet 4 -->
+            <div class="service-card">
+                <div class="service-header">
+                    <span class="service-title">Medikal Masaj</span>
+                    <span class="service-price">2500 ₺</span>
+                </div>
+                <div class="service-details">
+                    <div class="service-detail-item">
+                        <i class="fa-regular fa-clock"></i> 60 Dakika
+                    </div>
+                    <div class="service-detail-item">
+                        <i class="fa-solid fa-circle-check"></i> Kese & Köpük Dahil
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hizmet 5 -->
+            <div class="service-card">
+                <div class="service-header">
+                    <span class="service-title">VIP Masaj</span>
+                    <span class="service-price">3000 ₺</span>
+                </div>
+                <div class="service-details">
+                    <div class="service-detail-item">
+                        <i class="fa-regular fa-clock"></i> 80 Dakika
+                    </div>
+                    <div class="service-detail-item">
+                        <i class="fa-solid fa-circle-check"></i> Kese & Köpük
+                    </div>
+                    <div class="service-detail-item">
+                        <i class="fa-solid fa-ice-cream"></i> Meyve Tabağı İkramı
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hizmet 6 -->
+            <div class="service-card">
+                <div class="service-header">
+                    <span class="service-title">Sultan Masajı</span>
+                    <span class="service-price">4000 ₺</span>
+                </div>
+                <div class="service-details">
+                    <div class="service-detail-item">
+                        <i class="fa-regular fa-clock"></i> 60 Dakika
+                    </div>
+                    <div class="service-detail-item">
+                        <i class="fa-solid fa-user-group"></i> 2 Masöz Eşliğinde
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Müşteri Yorumları -->
+    <section id="yorumlar">
+        <h3 class="section-title">Müşteri Yorumları</h3>
+        <p class="section-subtitle">Misafirlerimizin deneyimleri</p>
+        <div class="divider"></div>
+
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="review-text">"Şanlıurfa'da gittiğim en temiz ve profesyonel salon. Medikal masaj seansı aldım, kronik sırt ağrılarıma çok iyi geldi. Personel çok ilgili."</p>
+                <p class="review-author">- Ahmet K.</p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="review-text">"VIP paketlerini denedik, meyve tabağı ikramından kese köpüğe kadar her şey kusursuz düşünülmüş. Ortamın sakinliği ve kokusu harika."</p>
+                <p class="review-author">- Murat Y.</p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="review-text">"Sultan masajı deneyimi tek kelimeyle muazzamdı. Çift masözle yapılan terapi tüm haftanın yorgunluğunu aldı. Kesinlikle tavsiye ederim."</p>
+                <p class="review-author">- Sinan T.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- İletişim & Harita Alanı -->
+    <section id="iletisim" style="background-color: var(--bg-light);">
+        <h3 class="section-title">İletişim & Ulaşım</h3>
+        <p class="section-subtitle">Rezervasyon ve konum bilgileri</p>
+        <div class="divider"></div>
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <p><i class="fa-solid fa-phone" style="color: var(--gold); margin-right: 8px;"></i> Telefon: <a href="tel:05367393181">0536 739 31 81</a></p>
+                <p style="margin-top: 10px; font-size: 1rem; color: var(--text-muted);"><i class="fa-solid fa-location-dot"></i> Haliliye / Şanlıurfa</p>
+            </div>
+
+            <div>
+                <a href="https://share.google/YQPK0m0VVdcyhYvah" class="btn btn-outline" target="_blank">
+                    <i class="fa-solid fa-map-location-dot"></i> Google Haritalarda Göster
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sabit Sağ Alt WhatsApp Butonu -->
+    <a href="https://wa.me/905367393181?text=Merhaba,%20Respira%20Şanlıurfa%20Masaj%20Salonu%20için%20randevu%20almak%20istiyorum." class="floating-whatsapp" target="_blank" title="WhatsApp Randevu Hattı">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Respira Şanlıurfa Masaj Salonu. Tüm Hakları Saklıdır.</p>
+    </footer>
+
+</body>
+</html>
